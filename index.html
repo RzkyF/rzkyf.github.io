@@ -1,81 +1,100 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Untuk Kamu 💖</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Rizki Fadillah</title>
   <style>
     body {
-      font-family: sans-serif;
-      background: #ffe6f0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
       color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1em;
       text-align: center;
-      padding: 30px;
     }
-    nav a {
-      margin: 10px;
-      text-decoration: none;
-      color: #e60073;
-      font-weight: bold;
+    img.profile {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-top: 1em;
     }
-    .halaman {
+    main {
+      padding: 2em;
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 1em;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.5em 1em;
+      border: none;
+      background: #2980b9;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .kontak {
       display: none;
-      animation: fadeIn 1s ease-in-out;
-    }
-    .aktif {
-      display: block;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      margin-top: 1em;
+      font-size: 0.9em;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <h1>💌 Untuk Kamu 💌</h1>
-  <nav>
-    <a href="#surat">Surat</a>
-    <a href="#galeri">Galeri</a>
-    <a href="#ucapan">Ucapan</a>
-  </nav>
 
-  <div id="surat" class="halaman aktif">
-    <h2>Hai Kamu...</h2>
-    <p>Aku cuma mau bilang, kamu itu luar biasa. Terima kasih sudah hadir di hidupku. 💕</p>
-  </div>
+<header>
+  <h1>Rizki Fadillah</h1>
+  <p>Web Developer | Problem Solver | Tech Enthusiast</p>
+  <img src="https://via.placeholder.com/120" alt="Foto Profil" class="profile"/>
+</header>
 
-  <div id="galeri" class="halaman">
-    <h2>Kenangan Kita 📸</h2>
-    <img src="https://via.placeholder.com/300x200?text=Foto+1" alt="Foto 1" style="margin:10px">
-    <img src="https://via.placeholder.com/300x200?text=Foto+2" alt="Foto 2" style="margin:10px">
-    <p>Masih banyak lagi kenangan yang akan kita buat bersama 💑</p>
-  </div>
+<main>
+  <section>
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah seorang pengembang web dengan ketertarikan pada teknologi front-end dan sistem informasi. Terbiasa mengelola proyek perangkat lunak dan memiliki semangat belajar tinggi.</p>
+  </section>
 
-  <div id="ucapan" class="halaman">
-    <h2>Pesan Untukmu 🎁</h2>
-    <p>Aku gak butuh alasan untuk sayang kamu. Kamu cukup jadi kamu aja, itu udah cukup. 💖</p>
-  </div>
+  <section>
+    <h2>Proyek Terbaru</h2>
+    <ul>
+      <li><strong>Sipaling Cuan</strong> – Toko online produk premium harga terjangkau.</li>
+      <li><strong>Web Surprise Bucin</strong> – Web interaktif kejutan untuk pasangan.</li>
+      <li><strong>Dashboard Sertifikasi SNI</strong> – Sistem pelacakan proses SNI di SIINas.</li>
+    </ul>
+  </section>
 
-  <script>
-    function gantiHalaman(hash) {
-      const semua = document.querySelectorAll('.halaman');
-      semua.forEach(div => div.classList.remove('aktif'));
+  <section>
+    <button onclick="toggleKontak()">Tampilkan Kontak</button>
+    <div class="kontak" id="kontakInfo">
+      <p>Email: rizki@example.com</p>
+      <p>LinkedIn: linkedin.com/in/rizkifadillah</p>
+      <p>GitHub: github.com/rizkifadillah</p>
+    </div>
+  </section>
+</main>
 
-      const target = document.querySelector(hash);
-      if (target) {
-        target.classList.add('aktif');
-      }
-    }
+<script>
+  function toggleKontak() {
+    const kontak = document.getElementById('kontakInfo');
+    kontak.style.display = (kontak.style.display === 'none' || kontak.style.display === '') ? 'block' : 'none';
+  }
+</script>
 
-    window.addEventListener('hashchange', () => {
-      gantiHalaman(location.hash);
-    });
-
-    window.addEventListener('load', () => {
-      if (!location.hash) {
-        location.hash = '#surat';
-      }
-      gantiHalaman(location.hash);
-    });
-  </script>
 </body>
 </html>
