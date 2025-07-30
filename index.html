@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Kamu 💖</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #ffe6f0;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+    nav a {
+      margin: 10px;
+      text-decoration: none;
+      color: #e60073;
+      font-weight: bold;
+    }
+    .halaman {
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .aktif {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>💌 Untuk Kamu 💌</h1>
+  <nav>
+    <a href="#surat">Surat</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#ucapan">Ucapan</a>
+  </nav>
+
+  <div id="surat" class="halaman aktif">
+    <h2>Hai Kamu...</h2>
+    <p>Aku cuma mau bilang, kamu itu luar biasa. Terima kasih sudah hadir di hidupku. 💕</p>
+  </div>
+
+  <div id="galeri" class="halaman">
+    <h2>Kenangan Kita 📸</h2>
+    <img src="https://via.placeholder.com/300x200?text=Foto+1" alt="Foto 1" style="margin:10px">
+    <img src="https://via.placeholder.com/300x200?text=Foto+2" alt="Foto 2" style="margin:10px">
+    <p>Masih banyak lagi kenangan yang akan kita buat bersama 💑</p>
+  </div>
+
+  <div id="ucapan" class="halaman">
+    <h2>Pesan Untukmu 🎁</h2>
+    <p>Aku gak butuh alasan untuk sayang kamu. Kamu cukup jadi kamu aja, itu udah cukup. 💖</p>
+  </div>
+
+  <script>
+    function gantiHalaman(hash) {
+      const semua = document.querySelectorAll('.halaman');
+      semua.forEach(div => div.classList.remove('aktif'));
+
+      const target = document.querySelector(hash);
+      if (target) {
+        target.classList.add('aktif');
+      }
+    }
+
+    window.addEventListener('hashchange', () => {
+      gantiHalaman(location.hash);
+    });
+
+    window.addEventListener('load', () => {
+      if (!location.hash) {
+        location.hash = '#surat';
+      }
+      gantiHalaman(location.hash);
+    });
+  </script>
+</body>
+</html>
